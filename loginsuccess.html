@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>project nexus - main</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeBackground 10s infinite alternate;
+        }
+
+        @keyframes fadeBackground {
+            0% {
+                background-color: #87CEFA; /* Light blue */
+            }
+            25% {
+                background-color: #4682B4; /* Steel blue */
+            }
+            50% {
+                background-color: #1E90FF; /* Dodger blue */
+            }
+            75% {
+                background-color: #4169E1; /* Royal blue */
+            }
+            100% {
+                background-color: #00008B; /* Dark blue */
+            }
+        }
+
+        .container {
+            text-align: center;
+            color: white; /* Text color for contrast */
+        }
+
+        .login-box {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the login box */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .dropdown {
+            margin-top: 20px;
+            cursor: pointer;
+            color: white;
+            background-color: purple;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .changelog-content {
+            display: none; /* Initially hidden */
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1 id="greeting">loading...</h1>
+            <h2 style="text-decoration: underline">welcome to project nexus</h2>
+            <h3>game websites</h3>
+            <div class="game-buttons">
+                <button onclick="startGame('https://www.fridaynightfunkinonline.github.io/')">website 1</button>
+                <button onclick="startGame('game2.html')">website 2</button>
+                <button onclick="startGame('game3.html')">website 3</button>
+            </div>
+            <h3>tools</h3>
+            <div class="tool-buttons">
+                <button onclick="startGame('tools/crashtool.html')">crash someones chromebook</button>
+                <button onclick="startGame('tool2.html')">tool 2</button>
+                <button onclick="startGame('tool3.html')">tool 3</button>
+            </div>
+
+            <!-- Changelog Dropdown -->
+            <button class="dropdown" onclick="toggleChangelog()">changelog</button>
+            <div id="changelog" class="changelog-content">
+                <h4>TEST ver 1.0 - 9/26/24</h4>
+                <ul>
+                    <li>testing version</li>
+                    <li>using this for testing features before i actually release them</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Function to get URL parameters
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get the username from the URL and display it
+        const username = getParameterByName('username');
+        if (username) {
+            document.getElementById('greeting').innerText = `hello, ${username}!`;
+        } else {
+            document.getElementById('greeting').innerText = 'hello!';
+        }
+
+        function startGame(link) {
+            window.location.href = link;
+        }
+        
+        function toggleChangelog() {
+            const changelogContent = document.getElementById('changelog');
+            if (changelogContent.style.display === 'none' || changelogContent.style.display === '') {
+                changelogContent.style.display = 'block';
+            } else {
+                changelogContent.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
