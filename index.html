@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>project nexus</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeBackground 10s infinite alternate;
+        }
 
+        @keyframes fadeBackground {
+            0% {
+                background-color: #87CEFA; /* Light blue */
+            }
+            25% {
+                background-color: #4682B4; /* Steel blue */
+            }
+            50% {
+                background-color: #1E90FF; /* Dodger blue */
+            }
+            75% {
+                background-color: #4169E1; /* Royal blue */
+            }
+            100% {
+                background-color: #00008B; /* Dark blue */
+            }
+        }
+
+        .container {
+            text-align: center;
+            color: white; /* Text color for contrast */
+        }
+
+        .login-box {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the login box */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1E90FF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4682B4; /* Change on hover */
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>login to project nexus</h1>
+            <form onsubmit="return validateLogin(event)">
+                <input type="text" id="username" placeholder="username" required />
+                <input type="password" id="password" placeholder="password" required />
+                <button type="submit">login</button>
+            </form>
+        </div>
+        <a style="margin-top: 20px;" href="index.html">THIS IS STRICTLY FOR TESTING FEATURES FOR PROJECT NEXUS</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
